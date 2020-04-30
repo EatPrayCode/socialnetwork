@@ -1,23 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { ExamplesComponent } from './examples/examples.component';
 
 const routes: Routes = [
   {
-    path: 'settings',
-    loadChildren: './settings/settings.module#SettingsModule'
+    path: '',
+    loadChildren: './examples/examples.module#ExamplesModule'
   },
-  {
-    path: 'profile',
-    loadChildren: './profile/profile.module#ProfileModule'
-  },
-  {
-    path: 'editor',
-    loadChildren: './editor/editor.module#EditorModule'
-  },
-  {
-    path: 'article',
-    loadChildren: './article/article.module#ArticleModule'
-  }
 ];
 
 @NgModule({
@@ -29,4 +18,4 @@ const routes: Routes = [
   })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
