@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { ExamplesComponent } from './examples/examples.component';
+import { ExamplesComponent } from './modules/examples/examples.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './examples/examples.module#ExamplesModule'
+    redirectTo: 'examples',
+    pathMatch: 'full'
   },
+  // {
+  //   path: '',
+  //   component: ExamplesComponent
+  // },
+  {
+    path: 'examples',
+    loadChildren: './modules/examples/examples.module#ExamplesModule'
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    // preload all modules; optionally we could
-    // implement a custom preloading strategy for just some
-    // of the modules (PRs welcome 😉)
-    preloadingStrategy: PreloadAllModules
-  })],
+  imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
